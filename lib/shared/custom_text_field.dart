@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../core/constants/api_colors.dart';
 
-class CustomTxtfield extends StatefulWidget {
-  const CustomTxtfield({super.key, required this.hint, required this.isPassword, required this.controller});
+class CustomTextField extends StatefulWidget {
+  const CustomTextField({super.key, required this.hint, required this.isPassword, required this.controller});
   final String hint;
   final bool isPassword;
   final TextEditingController controller;
 
   @override
-  State<CustomTxtfield> createState() => _CustomTxtfieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _CustomTxtfieldState extends State<CustomTxtfield> {
+class _CustomTextFieldState extends State<CustomTextField> {
   late bool _obscureText;
   @override
   void initState() {
@@ -47,11 +47,10 @@ class _CustomTxtfieldState extends State<CustomTxtfield> {
         fillColor: Colors.white,
         filled: true,
         hintText: widget.hint,
-        suffixIcon:
-            widget.isPassword?
+        suffixIcon: widget.isPassword?
         GestureDetector(
           onTap: _togglePassword,
-            child: Icon(Icons.remove_red_eye_outlined)):null
+            child: Icon(Icons.remove_red_eye_outlined,color: Colors.white,)):null
       ),
     );
   }

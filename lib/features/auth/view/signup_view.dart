@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/api_colors.dart';
+import 'package:hungry/features/auth/view/login_view.dart';
 import 'package:hungry/features/auth/widgets/custom_btn.dart';
-
-import '../../../shared/custom_text.dart';
-import '../../../shared/custom_txtfield.dart';
+import 'package:hungry/shared/custom_text.dart';
+import '../../../shared/custom_text_field.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({super.key});
@@ -15,54 +15,76 @@ class SignupView extends StatelessWidget {
     TextEditingController emailController = TextEditingController();
     TextEditingController nameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    TextEditingController confirmPasswordController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey();
     return GestureDetector(
       onTap: (){
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        backgroundColor: AppColors.primary,
-        body: Center(
-          child: Form(
-            key: formKey,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+        backgroundColor: Colors.white,
+        body: Form(
+              key: formKey,
               child: Column(
-                children: [
-                  Gap(100),
-                  SvgPicture.asset("Assets/image/logo.svg"),
-                  Gap(70),
-                  CustomTxtfield(hint: "Name ",
-                    isPassword: false,
-                    controller:nameController ,),
-                  Gap(15),
-                  CustomTxtfield(hint: "Email ",
-                    isPassword: false,
-                    controller:emailController ,),
-                  Gap(15),
-                  CustomTxtfield(hint: "Password ",
-                    isPassword: true,
-                    controller:passwordController ,),
-                  Gap(15),
-                  CustomTxtfield(hint: "Confirm Password",
-                    isPassword: true,
-                    controller:confirmPasswordController ,),
-                  Gap(25),
-                  CustomAuthBtn(
-                    text: "Sign",
-                    onTab: (){
-                    if(formKey.currentState!.validate()){
-                      print("success register");
-                    }
-                  },),
+                  children: [
+                    Gap(230),
+                    SvgPicture.asset("Assets/image/logo.svg",color: AppColors.primary,),
+                    CustomText(text: "Welcome To Our App Food ",weight: FontWeight.bold,size: 15,),
+                    Gap(70),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30)
+                          ),
+                          color: AppColors.primary
+                        ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Gap(30),
+                              CustomTextField(hint: "Name ",
+                                isPassword: false,
+                                controller:nameController ,),
+                              Gap(15),
+                              CustomTextField(hint: "Email ",
+                                isPassword: false,
+                                controller:emailController ,),
+                              Gap(15),
+                              CustomTextField(hint: "Password ",
+                                isPassword: true,
+                                controller:passwordController ,),
+                              Gap(25),
+                              // sign
+                              CustomAuthBtn(
+                                color: AppColors.primary,
+                                textColor: Colors.white,
+                                text: "Sign",
+                                onTab: (){
+                                  if(formKey.currentState!.validate()){
+                                  }
+                                },),
+                              // login
+                              Gap(30),
+                              CustomAuthBtn(
+                                text: "Go to Login ?",
+                                onTab: (){
+                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginView()));
+                                },),
+                              Gap(200)
+                          
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
 
-                ],
+
+                  ],
+                ),
               ),
-            ),
           ),
-        ),
-      ),
     );
   }
 }
