@@ -4,7 +4,6 @@ import 'package:hungry/features/cart/widget/cart_item.dart';
 import 'package:hungry/features/cheekout/view/checkout_view.dart';
 import 'package:hungry/shared/custom_button.dart';
 import 'package:hungry/shared/custom_text.dart';
-import '../../../core/constants/api_colors.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});
