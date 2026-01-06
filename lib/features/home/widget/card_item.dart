@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/api_colors.dart';
 import '../../../shared/custom_text.dart';
 
@@ -22,7 +23,8 @@ class CardItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(image,width: 180,),
+            Center(child: Image.asset(image,width: 120,height: 120,)),
+            Gap(20),
             CustomText(text: text,weight: FontWeight.bold,),
             CustomText(text: desc),
             Row(

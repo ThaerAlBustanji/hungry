@@ -5,6 +5,7 @@ import 'package:hungry/features/cheekout/view/checkout_view.dart';
 import 'package:hungry/shared/custom_button.dart';
 import 'package:hungry/shared/custom_text.dart';
 
+
 class CartView extends StatefulWidget {
   const CartView({super.key});
 
@@ -60,10 +61,17 @@ class _CartViewState extends State<CartView> {
 
       bottomSheet:  Container(
        decoration: BoxDecoration(
+        boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade800,
+              blurRadius: 20,
+              offset: Offset(0, 0)
+            )
+          ],
          color: Colors.white,
          borderRadius: BorderRadius.only(
-           topLeft: Radius.circular(12),
-           topRight: Radius.circular(12)
+           topLeft: Radius.circular(30),
+           topRight: Radius.circular(30)
          )
        ),
         padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),

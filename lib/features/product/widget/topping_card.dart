@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/core/constants/api_colors.dart';
 
 class ToppingCard extends StatelessWidget {
   final String imageUrl;
@@ -14,8 +15,8 @@ class ToppingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 130,
-      height: 135,
+      width: 120,
+      height: 125,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -31,17 +32,15 @@ class ToppingCard extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(14),
-                child: Image.asset(imageUrl, fit: BoxFit.contain),
+                child: Image.asset(imageUrl, fit: BoxFit.contain,),
               ),
-            ),
+          
             Container(
               height: 56,
               padding: const EdgeInsets.symmetric(horizontal: 14),
-              decoration: const BoxDecoration(
-                color: Color(0xFF2E2929),
-                borderRadius: BorderRadius.vertical(
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(18),
                 ),
               ),
@@ -59,8 +58,8 @@ class ToppingCard extends StatelessWidget {
                   GestureDetector(
                     onTap: onAdd,
                     child: Container(
-                      width: 34,
-                      height: 34,
+                      width: 25,
+                      height: 25,
                       decoration: const BoxDecoration(
                         color: Colors.red,
                         shape: BoxShape.circle,

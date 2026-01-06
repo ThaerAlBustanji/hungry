@@ -182,9 +182,6 @@ class _CheckoutViewState extends State<CheckoutView> {
                   ),
                 );
                   });
-
-
-
               },)
           ],
         ),

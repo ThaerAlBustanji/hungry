@@ -5,7 +5,7 @@ import '../../../core/constants/api_colors.dart';
 import '../../../shared/custom_text.dart';
 
 class FoodCategory extends StatefulWidget {
-    FoodCategory({super.key, required this.category, required this.selectedIndex});
+    const FoodCategory({super.key, required this.category, required this.selectedIndex});
   final List  category ;
    final int selectedIndex;
 

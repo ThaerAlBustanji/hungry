@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/constants/api_colors.dart';
 import 'package:hungry/features/product/widget/spicy_slider.dart';
 import 'package:hungry/features/product/widget/topping_card.dart';
 import 'package:hungry/shared/custom_button.dart';
@@ -70,22 +72,92 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
               ),
               Gap(30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    children: [
-                      CustomText(text: "Total",size: 16,),
-                      CustomText(text: "\$ 18.7",size: 24,)
-                    ],
-                  ),
-                  CustomButton(text: "Add To Cart")
-                ],
-              ),
+            
             ],
           ),
+        ),
+      ),
+      bottomSheet:  Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade800,
+              blurRadius: 20,
+              offset: Offset(0, 0)
+            )
+          ],
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20)
+            )
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+        height: 120,
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              children: [
+                CustomText(text: "Total",size: 16,),
+                CustomText(text: "\$ 18.7",size: 24,)
+              ],
+            ),
+            CustomButton(text: "Add to cart",
+              onTap: (){
+              showDialog(context: context,
+                  builder: (context){
+                return Dialog(
+                  backgroundColor: Colors.transparent,
+                  child:  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 230),
+                    child: Container(
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.shade800,
+                                  blurRadius: 20,
+                                  offset: Offset(0, 0)
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: AppColors.primary,
+                              radius: 40,
+                              child: Icon(CupertinoIcons.checkmark,size: 40,color: Colors.white,),
+                            ),
+                            Gap(10),
+                            CustomText(text: "Success !",
+                              size: 20,
+                              color: AppColors.primary,
+                              weight: FontWeight.bold,),
+                            CustomText(text: "Your payment was successful.\n"
+                                "A receipt for this purchase has\n"
+                                " been sent to your email.",
+                              color: Colors.grey,
+                            ),
+                            Gap(30),
+                            CustomButton(text: "Go Back",width: 200,onTap: (){Navigator.pop(context);},)
+                            
+                          ],
+                        )
+                    ),
+                  ),
+                );
+                  });
+
+
+              },)
+          ],
         ),
       ),
 

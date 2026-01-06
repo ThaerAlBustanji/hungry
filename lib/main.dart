@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/auth/view/signup_view.dart';
+import 'package:hungry/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white
       ),
-      home: SignupView()
+      home: SplashView()
     );
   }
 }
-
