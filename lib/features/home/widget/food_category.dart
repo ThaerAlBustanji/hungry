@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import '../../../core/constants/api_colors.dart';
 import '../../../shared/custom_text.dart';
 

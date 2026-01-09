@@ -19,10 +19,12 @@ class _RootState extends State<Root> {
   int currentScreen = 0;
   @override
   void initState() {
-    screens =[HomeView(),
+    screens =[
+      HomeView(),
       CartView(),
       OderHistoryView(),
-      ProfileView()];
+      ProfileView()
+      ];
     controller = PageController(initialPage: currentScreen);
     super.initState();
   }

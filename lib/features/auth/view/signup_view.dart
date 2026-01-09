@@ -39,7 +39,7 @@ class SignupView extends StatelessWidget {
                             topRight: Radius.circular(30)
                           ),
                           color: AppColors.primary
-                        ),
+                        ),    
                         child: SingleChildScrollView(
                           child: Column(
                             children: [

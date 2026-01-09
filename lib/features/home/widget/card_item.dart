@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/api_colors.dart';
 import '../../../shared/custom_text.dart';
 
-class CardItem extends StatelessWidget {
+class CardItem extends StatefulWidget {
   const CardItem({
     super.key,
     required this.image,
@@ -15,6 +15,12 @@ class CardItem extends StatelessWidget {
   final String image , text , desc, rate ;
 
   @override
+  State<CardItem> createState() => _CardItemState();
+}
+
+class _CardItemState extends State<CardItem> {
+  bool isFavorite= false;
+  @override
   Widget build(BuildContext context) {
     return  Card(
       color: Colors.white,
@@ -23,15 +29,21 @@ class CardItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Image.asset(image,width: 120,height: 120,)),
+            Center(child: Image.asset(widget.image,width: 120,height: 120,)),
             Gap(20),
-            CustomText(text: text,weight: FontWeight.bold,),
-            CustomText(text: desc),
+            CustomText(text: widget.text,weight: FontWeight.bold,),
+            CustomText(text: widget.desc),
             Row(
               children: [
-                CustomText(text: rate),
+                CustomText(text: widget.rate),
                 Spacer(),
-                Icon(CupertinoIcons.heart_fill,color: AppColors.primary,)
+                GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      isFavorite =!isFavorite;
+                    });
+                  },
+                  child: Icon(CupertinoIcons.heart_fill,color: isFavorite? AppColors.primary:Colors.grey,))
               ],
             )
           ],
