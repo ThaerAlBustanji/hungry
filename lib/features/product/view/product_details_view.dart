@@ -72,7 +72,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
               ),
               Gap(30),
-            
             ],
           ),
         ),
@@ -107,56 +106,10 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
               ],
             ),
             CustomButton(text: "Add to cart",
-              onTap: (){
-              showDialog(context: context,
-                  builder: (context){
-                return Dialog(
-                  backgroundColor: Colors.transparent,
-                  child:  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 230),
-                    child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade800,
-                                  blurRadius: 20,
-                                  offset: Offset(0, 0)
-                              )
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12)
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: AppColors.primary,
-                              radius: 40,
-                              child: Icon(CupertinoIcons.checkmark,size: 40,color: Colors.white,),
-                            ),
-                            Gap(10),
-                            CustomText(text: "Success !",
-                              size: 20,
-                              color: AppColors.primary,
-                              weight: FontWeight.bold,),
-                            CustomText(text: "Your payment was successful.\n"
-                                "A receipt for this purchase has\n"
-                                " been sent to your email.",
-                              color: Colors.grey,
-                            ),
-                            Gap(30),
-                            CustomButton(text: "Go Back",width: 200,onTap: (){Navigator.pop(context);},)
-                            
-                          ],
-                        )
-                    ),
-                  ),
-                );
-                  });
-
-
-              },)
+              onTap: (){  
+                Navigator.pop(context);
+                })
+          
           ],
         ),
       ),
